@@ -9,7 +9,6 @@ class Login:
         self.user_name = (By.NAME, "name")
         self.user_email = (By.XPATH, "(//input[@name='email'])[2]")
         self.login_button = (By.XPATH, "//button[normalize-space()='Signup']")
-        #self.success_message = (By.XPATH, "//h2[@class='title text-center']//b")
 
     def click_login_menu(self):
         self.driver.find_element(*self.login_menu).click()
@@ -22,6 +21,3 @@ class Login:
 
     def click_login_button(self):
         self.driver.find_element(*self.login_button).click()
-
-    def get_success_message(self):
-        self.driver.find_element(*self.success_message).text
