@@ -30,12 +30,12 @@ def click_login_button(context):
     context.login.click_login_button()
 
 
-# @then("user get success message")
-# def get_success_message(context):
-#     message = context.driver.find_element(By.XPATH, "//h2[@class='title text-center']//b").text
-#
-#     if message == "ENTER ACCOUNT INFORMATION":
-#         assert True
-#
-#     else:
-#         assert False
+@then("user get success message")
+def get_success_message(context):
+    message = context.driver.find_element(By.XPATH, "//h2[@class='title text-center']//b").text
+
+    if message == "ENTER ACCOUNT INFORMATION":
+        assert True
+
+    else:
+        assert False
