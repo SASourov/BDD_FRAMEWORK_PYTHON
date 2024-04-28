@@ -23,5 +23,5 @@ class Login:
     def click_login_button(self):
         self.driver.find_element(*self.login_button).click()
 
-    # def get_success_message(self):
-    #     self.driver.find_element(*self.success_message).text
+    def get_success_message(self):
+        self.driver.find_element(*self.success_message).text
