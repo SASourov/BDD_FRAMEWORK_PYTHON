@@ -85,7 +85,7 @@ def user_set_name_info(context):
 
 @when('user set address info')
 def user_set_address_info(context):
-    context.ac_info.set_address("Banani Dhaka")
+    context.ac_info.set_address("Banani,Dhaka")
     time.sleep(2)
     context.ac_info.set_country()
     time.sleep(2)
