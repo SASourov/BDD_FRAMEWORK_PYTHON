@@ -6,11 +6,11 @@ Feature: Test Feature
     When user click login menu
     And user entre username and email address
     And user click login button
-#    And user get success message
+    Then success message
     And user select gender
     And user set password
     And user set birth info
     And user select an option
     And user set name info
     And user set address info
-    And user click button
+    And user click button1

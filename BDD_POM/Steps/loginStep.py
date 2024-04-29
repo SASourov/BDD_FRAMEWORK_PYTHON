@@ -6,6 +6,9 @@ from selenium.webdriver.common.by import By
 
 from BDD_POM.Steps.loginPage import Login
 from BDD_POM.Steps.accountInfoPage import AccountInfo
+import random
+
+random_num = random.randint(0, 999)
 
 
 @given('user open web site')
@@ -24,8 +27,8 @@ def click_login_menu(context):
 
 @when("user entre username and email address")
 def set_username_and_email(context):
-    context.login.set_username("Shakil")
-    context.login.set_user_email("shakil001@mail.com")
+    context.login.set_username("Test")
+    context.login.set_user_email("test@" + str(random_num) + "mail.com")
 
 
 @when("user click login button")
@@ -33,23 +36,19 @@ def click_login_button(context):
     context.login.click_login_button()
 
 
-# @when("user get success message")
-# def get_success_message(context):
-#     message = context.driver.find_element(By.XPATH, "//h2[@class='title text-center']//b").text
-#
-#     if message == "ENTER ACCOUNT INFORMATION":
-#         assert True
-#
-#     else:
-#         assert False
+@then("success message")
+def get_success_message(context):
+    message = context.driver.find_element(By.XPATH, "//h2[@class='title text-center']//b").text
+
+    if message == "ENTER ACCOUNT INFORMATION":
+        assert True
+
+    else:
+        assert False
 
 
 @when('user select gender')
 def select_gender(context):
-    # context.driver = webdriver.Chrome()
-    # context.driver.maximize_window()
-    # context.driver.implicitly_wait(10)
-    # context.driver.get("https://automationexercise.com/")
     context.ac_info = AccountInfo(context.driver)
     context.ac_info.click_select_gender()
     time.sleep(2)
@@ -64,7 +63,9 @@ def user_set_password(context):
 @when('user set birth info')
 def user_set_birth_info(context):
     context.ac_info.click_on_birth_date()
+    time.sleep(2)
     context.ac_info.click_on_birth_month()
+    time.sleep(2)
     context.ac_info.click_on_birth_year()
     time.sleep(2)
 
@@ -100,3 +101,4 @@ def user_set_address_info(context):
 @when('user click button')
 def user_click_button(context):
     context.ac_info.click_on_create_button()
+    context.driver.quit()
